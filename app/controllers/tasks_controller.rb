@@ -51,6 +51,6 @@ class TasksController < ApplicationController
     private
 
     def task_params
-        params.require(:task).permit(:title, :description) #tecnica llamada "strong parameters" permite elegir que atributos son permitidos
+        params.require(:task).permit(:title, :description, :due_date) #tecnica llamada "strong parameters" permite elegir que atributos son permitidos
     end
 end

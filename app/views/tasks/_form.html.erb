@@ -6,6 +6,7 @@
     </div>
     <div class="flex space-x-2 ">
           <%= form.text_field :description, placeholder: "Description", class: "inline-block w-96 px-3 py-2 mt-2 shadow rounded-md border border-gray-200 outline-none" %>
+          <%= form.date_field :due_date, required: true %>
           <%= form.submit "Save", class: "btn py-2 mt-2 bg-violet-600 text-white" %>
     </div>
   </div>

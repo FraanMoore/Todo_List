@@ -8,6 +8,7 @@
                         class: "mr-2 align-middle bg-violet-50 border-violet-400 focus:ring-violet-500 h-5 w-5 rounded checked:bg-violet-600 hover:bg-violet-400"%>
     <%= task.title%>
     <%= task.description%>
+    <%= task.due_date%>
     <% end %>
 
     <%= link_to "Edit", edit_task_path(task),
