@@ -20,6 +20,12 @@ class TasksController < ApplicationController
 
     def task_params
         params.require(:task).permit(:title, :description) #tecnica llamada "strong parameters" permite elegir que atributos son permitidos
-        end
-        
+    end
+
+    def toggle
+        @task = Task.find(params[:id])
+        @task.update(completed: params[:completed])
+
+        render json: { message: "Success"}
+    end
 end

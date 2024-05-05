@@ -3,3 +3,17 @@
     <%= task.description%>
 
 </div>
+
+<div class="block">
+    <%= form_with(model: task, class:"text-lg inline-block my-3 w-72") do |form|%>
+    <%= form.check_box :completed, 
+                        data: {
+                            id: task.id,
+                            action: "task#toggle"
+                            },
+                        class: "mr-2 align-middle bg-violet-50 border-violet-400 focus:ring-violet-500 h-5 w-5 rounded checked:bg-violet-600 hover:bg-violet-400"%>
+    <%= task.title%>
+    <% end %>
+
+</div>
+
