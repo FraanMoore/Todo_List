@@ -1,0 +1,12 @@
+
+<div class="my-5">
+<%= form_with(model: task, class: "mb-7") do |form| %>
+    <div class="flex flex-col">
+         <%= form.text_field :title, placeholder: "Add Task", class: "inline-block w-96 px-3 py-2 mt-2 shadow rounded-md border border-gray-200 outline-none" %>
+    </div>
+    <div class="flex justify-between space-x-2 ">
+         <%= form.text_field :description, placeholder: "Description", class: "inline-block w-96 px-3 py-2 mt-2 shadow rounded-md border border-gray-200 outline-none" %>
+        <%= form.submit "Save", class: "btn py-2 mt-2 bg-violet-600 text-white" %>
+    </div>
+  </div>
+<% end %>
