@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   
   resources :tasks
 
-  post "task/:id/toggle", to: "task#toggle"
+  post "tasks/:id/toggle", to: "tasks#toggle"
 
 end
