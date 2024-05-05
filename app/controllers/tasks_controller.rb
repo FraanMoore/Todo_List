@@ -1,6 +1,14 @@
 class TasksController < ApplicationController
     def index
-        @tasks = Task.all #esto hace fetch todas las tasks de la db
+        filter_by_completed = params[:completed]
+
+        if filter_by_completed.nil? || filter_by_completed == 'All'
+          @tasks = Task.all
+        elsif filter_by_completed == 'Pending'
+            @tasks = Task.where(completed: false)
+        else
+            @tasks = Task.where(completed: true)
+        end
         @task = Task.new #crea una nueva tarea
     end
 
