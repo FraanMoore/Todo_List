@@ -1,6 +1,23 @@
-<div class="my-5 flex text-center justify-center px-6">
-    <h1 class="font-bold text-2xl text-blue-900">To do list</h1>
-</div>
-<div class="mt-4">
-    <%= render "form", task: @task%> <!--se esta renderizando como "partial", esto permite romper la renderizacion>-->
+<div class="container">
+    <% if notice.present?%>
+        <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline" id="notice"> 
+            <%= notice %>
+        </p>
+    <%end%>
+
+    <div class="my-5 flex text-center justify-center px-6">
+        <h1 class="font-bold text-2xl text-blue-900">To do list</h1>
+    </div>
+
+    <div class="mt-4">
+        <%= render "form", task: @task %> <!--se esta renderizando como "partial", esto permite romper la renderizacion>-->
+    </div>
+
+    <div id="tasks">
+        <h1 class="font-bold text-lg mb-7">Tasks</h1>
+
+        <div class="px-5">
+            <%= render @tasks %>
+        </div>
+    </div>
 </div>

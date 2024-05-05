@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
     def index
         @tasks = Task.all #esto hace fetch todas las tasks de la db
-        @tasks = Task.new #crea una nueva tarea
+        @task = Task.new #crea una nueva tarea
     end
 
     def create 
@@ -19,7 +19,7 @@ class TasksController < ApplicationController
     private
 
     def task_params
-        params.require(:task).permit(:desciption) #tecnica llamada "strong parameters" permite elegir que atributos son permitidos
+        params.require(:task).permit(:title, :description) #tecnica llamada "strong parameters" permite elegir que atributos son permitidos
         end
         
 end
