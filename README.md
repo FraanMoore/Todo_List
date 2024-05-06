@@ -1,29 +1,24 @@
 # README
 
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-Clone the repository
-$ git clone git@github.com:juliendargelos/project.git
-$ cd project
+Things you may want to cover:
 
-Check your Ruby version
-$ ruby -v
-The ouput should start with something like ruby 3.3.1 
+* Ruby version
+        3.3.1 
 
-If not, install the right ruby version using rbenv (it could take a while):
+*  Clone the repository
+        $ git clone git@https://github.com/FraanMoore/Todo_List.git
+        $ cd Todo_List
 
-rbenv install 3.3.1 
+* Database creation
+        postgresql
 
-Install dependencies
-Using Bundler and Yarn:
+* Database initialization
+        $bundle && yarn
+        $ gem install tailwind-sorter
+        $ bundle binstubs tailwind-sorter
 
-$bundle && yarn
-$ gem install tailwind-sorter
-$ bundle binstubs tailwind-sorter
-
-Initialize the database
-$ rails db:create db:migrate db:seed
-
-Serve
-$bin/dev
-
-
+* Server
+        $ bin/dev
