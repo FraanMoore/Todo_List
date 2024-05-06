@@ -3,7 +3,7 @@
         <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline" id="notice"> 
             <%= notice %>
         </p>
-    <%end%>
+    <%end%> <!--mensaje de los eventos del controlador-->
 
     <div class="my-5 flex">
         <h1 class="font-bold text-2xl text-blue-900 md:text-3xl lg:text-4xl">To do list</h1>
@@ -20,7 +20,7 @@
             <div class="inline-block text-violet-900"> <%= label_tag :completed %> </div>
             <%= select_tag :completed, options_for_select(["All", "Pending", "Done"], params[:completed] || "All"), class: "inline-block text-violet-900 w-32 px-3 py-2 mt-2 my-6 shadow rounded-md border border-gray-200 outline-none" %>
             <%= submit_tag "Search", class:"text-violet-900" %>
-        <% end %>
+        <% end %> <!-- filter -->
     </div>
     <div class="px-5" data-controller="tasks">
         <%= render @tasks%>
