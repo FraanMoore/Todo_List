@@ -1,32 +1,28 @@
 <div class="block">
-    
-    <%= form_with(model: task, class:"text-l inline-block my-3 w-60") do |form|%>
-    <div class="flex items-start">
-    <%= form.check_box :completed, 
-                        data: {
-                            id: task.id,
-                            action: "tasks#toggle"
-                            },
-                        class: "mr-2 align-middle bg-violet-50 border-violet-400 focus:ring-violet-500 h-5 w-5 rounded checked:bg-violet-600 hover:bg-violet-400"%>
-    
-     <div class="block ml-2 ">   
-        <div class="text-xl text-violet-900"><%= task.title %></div>
-        <div class="text-violet-900"><%= task.description %> </div>
-        <div class="text-violet-400"><%= task.due_date.strftime("%b %d") %> </div>
-        </div>
-        </div>
-        <% end %>
+    <turbo-frame id="<%= dom_id task %>" class="block">
+        <%= form_with(model: task, class:"text-l inline-block my-3 p-3 m-2 w-auto") do |form|%>
+        <div class="flex items-start justify-between min-h-10">
+            <%= form.check_box :completed, 
+                                data: {
+                                    id: task.id,
+                                    action: "tasks#toggle"
+                                    },
+                                class: "mr-2 align-middle bg-violet-50 border-violet-400 focus:ring-violet-500 h-5 w-5 rounded checked:bg-violet-600 hover:bg-violet-400"%>
+        
+            <div class="ml-2 flex-grow ">   
+                <div class="text-xl text-violet-900"><%= task.title %></div>
+                <div class="text-violet-900"><%= task.description %> </div>
+                <div class="text-violet-400"><%= task.due_date.strftime("%b %d") %> </div>
+            
+                <% end %>
+            </div>
+            </div>
+            <div class="me-8 flex items-center space-x-2">
+                <%= link_to "Edit", edit_task_path(task),
+                        class: "btn bg-violet-100 text-violet-900" %>
 
-    <%= link_to "Edit", edit_task_path(task),
-              class: "btn bg-violet-100 text-violet-900 "
-  %>
-  <div class="inline-block ml-1">
-    <%= link_to "Delete", task_path(task),
-                  data: {
-                    'turbo-method': :delete,
-                    turbo_confirm: "Are you sure?"
-                  },
-                  class: "btn bg-violet-100 text-violet-900" %>
-  </div>
+                <%= button_to "Delete", task_path(task), method: :delete, data: { "turbo-frame": "_top" }, class: "btn bg-violet-100 text-violet-900" %>
+            </div>
+    </turbo-frame>
 </div>
 
