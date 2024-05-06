@@ -1,27 +1,27 @@
-<div class="container">
+<div class="min-w-80 max-w-3xl p-5 m-2 bg-cover justify-item-center" style="background-image: url('https://i.pinimg.com/564x/ae/df/b2/aedfb2094f51330330e83f667e2272a1.jpg')">
     <% if notice.present? %>
         <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline" id="notice"> 
             <%= notice %>
         </p>
     <%end%>
 
-    <div class="my-5 flex text-center justify-center px-6">
-        <h1 class="font-bold text-2xl text-blue-900">To do list</h1>
+    <div class="my-5 flex">
+        <h1 class="font-bold text-2xl text-blue-900 md:text-3xl lg:text-4xl">To do list</h1>
     </div>
 
-    <div class="mt-4">
+    <div class="mt-8 flex">
         <%= render "form", task: @task %> <!--se esta renderizando como "partial", esto permite romper la renderizacion>-->
     </div>
 
-    <div id="tasks">
-        <h1 class="font-bold text-lg mb-7">Tasks</h1>
+    <div id="tasks" class="justify-center">
+        <h1 class="font-bold text-blue-900 text-lg mb-7">Tasks</h1>
+    
+        <%= form_tag tasks_path, method: :get do %>
+            <div class="inline-block text-violet-900"> <%= label_tag :completed %> </div>
+            <%= select_tag :completed, options_for_select(["All", "Pending", "Done"], params[:completed] || "All"), class: "inline-block text-violet-900 w-32 px-3 py-2 mt-2 my-6 shadow rounded-md border border-gray-200 outline-none" %>
+            <%= submit_tag "Search", class:"text-violet-900" %>
+        <% end %>
     </div>
-    <%= form_tag tasks_path, method: :get do %>
-        <%= label_tag :completed %>
-        <%= select_tag :completed, options_for_select(["All", "Pending", "Done"], params[:completed] || "All") %>
-        <%= submit_tag "Filter" %>
-    <% end %>
-
     <div class="px-5" data-controller="tasks">
         <%= render @tasks%>
     </div>

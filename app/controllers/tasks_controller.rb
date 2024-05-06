@@ -32,7 +32,7 @@ class TasksController < ApplicationController
         @task = Task.find(params[:id])
         @task.update(completed: params[:completed])
 
-        render json: { message: "Success" }
+       puts({ message: "Success" }.to_json)
     end
 
     def edit

@@ -1,8 +1,8 @@
-<div>
-  <h1 class="font-bold text-2xl mb-3">Editing Task</h1>
+<div  class="min-w-80 max-w-3xl p-5 m-2 bg-cover" style="background-image: url('https://i.pinimg.com/564x/ae/df/b2/aedfb2094f51330330e83f667e2272a1.jpg')">
+  <h1 class="font-bold text-blue-900 text-2xl mb-3">Editing Task</h1>
 
   <div id="<%= dom_id @task %>">
     <%= render "form", task: @task %>
-    <%= link_to "Never Mind", tasks_path, class: "btn mb-3 bg-violet-100" %>
+    <%= link_to "Back to tasks", tasks_path, class: "btn mb-3 bg-violet-100 text-violet-900" %>
   </div>
 </div> 
