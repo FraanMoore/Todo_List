@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
-    def index
+
+    def index #responsable to show the tasks
+    #start filter
         filter_by_completed = params[:completed]
 
         if filter_by_completed.nil? || filter_by_completed == 'All'
@@ -9,14 +11,16 @@ class TasksController < ApplicationController
         else
             @tasks = Task.where(completed: true)
         end
-        @task = Task.new #crea una nueva tarea
+    #end filter
+
+        @task = Task.new #new task
     end
 
-    def show
+    def show #specific task
         @task = Task.find(params[:id])
     end
 
-    def create
+    def create #create task
         @task = Task.new(task_params)
 
         respond_to do |format|
@@ -28,18 +32,18 @@ class TasksController < ApplicationController
         end
     end
 
-    def toggle
+    def toggle #update task complete
         @task = Task.find(params[:id])
         @task.update(completed: params[:completed])
 
        puts({ message: "Success" }.to_json)
     end
 
-    def edit
+    def edit #specifict task
         @task = Task.find(params[:id])
     end
 
-    def update
+    def update #update the task
         @task = Task.find(params[:id])
         respond_to do |format|
             if @task.update(task_params)
@@ -50,15 +54,15 @@ class TasksController < ApplicationController
         end
     end
 
-    def destroy
+    def destroy #delete
         @task = Task.find(params[:id])
         @task.destroy
         redirect_to tasks_url, notice: "Post was successfully deleted."
     end
 
-    private
+    private  #for security
 
     def task_params
-        params.require(:task).permit(:title, :description, :due_date) #tecnica llamada "strong parameters" permite elegir que atributos son permitidos
+        params.require(:task).permit(:title, :description, :due_date)
     end
 end

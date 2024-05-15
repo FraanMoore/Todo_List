@@ -1,6 +1,6 @@
-<div class="block">
+<div class=""> <!--block-->
     <turbo-frame id="<%= dom_id task %>" class="block">
-        <%= form_with(model: task, class:"text-l inline-block my-3 p-3 m-2 w-auto") do |form|%>
+        <%= form_with(model: task, class:"text-l inline-block my-3 p-3 m-2 w-auto") do |form|%> <!--render form that represent the task-->
         <div class="flex items-start justify-between min-h-10">
             <%= form.check_box :completed, 
                                 data: {
