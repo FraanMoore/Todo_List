@@ -2,7 +2,7 @@
 <div class="flex ">
 <%= form_with(model: task, class: "mb-5") do |form| %> <!--generete a form associeted to the model task-->
     <div class="flex flex-col">
-         <%= form.text_field :title, placeholder: "Add Task", class: "inline-block sm:flex-row text-violet-900 px-3 py-2 mt-2 shadow rounded-md border border-violet-200 outline-none" %>
+         <%= form.text_field :title, required: true, placeholder: "Add Task", class: "inline-block sm:flex-row text-violet-900 px-3 py-2 mt-2 shadow rounded-md border border-violet-200 outline-none" %>
     </div>
     <div class="flex flex-col sm:flex-row sm:space-x-2 sm:items-center">
           <%= form.text_field :description, placeholder: "Description", class: "inline-block  sm:flex-row text-violet-900 px-3 py-2 mt-2 shadow rounded-md border border-violet-200 outline-none" %>
